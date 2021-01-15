@@ -3,11 +3,17 @@ import { Container, Row, Col } from 'react-bootstrap';
 import ImportedButton from '../btn/Button';
 import ImportedDisplay from '../display/Display';
 
-
 class CalcButton extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { num1: "", num2: "", sum: null, operation: "", numSet: false, show: false };
+        this.state = {
+            num1: "",
+            num2: "",
+            sum: null,
+            operation: "",
+            numSet: false,
+            show: false
+        };
     }
     SetNum = (newValue) => {
         this.state.numSet !== true ? this.setState({ num1: this.state.num1 += newValue }) : this.setState({ num2: this.state.num2 += newValue });
@@ -21,7 +27,7 @@ class CalcButton extends React.Component {
         this.setState({ numSet: true })
         this.setState({ operation: newOperation })
         // If statement to check if numSet is already true(basically if this function has already been triggered), to reset with the exception of the previous sum as num1
-        this.state.numSet === true ? this.setState({ num1: this.state.sum, num2: "", sum: null, operation: newOperation, numSet: true, show: false }) : console.log("hehe");
+        this.state.numSet === true && this.setState({num1: this.state.sum, num2: "", sum: null, operation: newOperation, numSet: true, show: false });
         // if (this.state.numSet === true) {
         //     this.setState({
         //         num1: this.state.sum,
