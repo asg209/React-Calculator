@@ -22,6 +22,10 @@ class CalcButton extends React.Component {
         // } else {
         //     this.setState({ num2: this.state.num2 += newValue })
         // }
+        
+
+
+        
     }
     setOperation = (newOperation) => {
         this.setState({ numSet: true })
@@ -38,6 +42,17 @@ class CalcButton extends React.Component {
         //         show: false
         //     })
         // }
+
+        if (this.state.sum !== null){
+            this.setState({
+                num1: this.state.sum,
+                num2: "",
+                sum: null,
+                operation: newOperation,
+                numSet: true,
+                show: true
+            })
+        }
     }
     QuickMath = () => {
         switch (this.state.operation) {
